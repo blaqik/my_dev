@@ -1,0 +1,7 @@
+---
+
+#playbook_dir: /home/vlad/ansible_dev
+nginx_path_conf: /home/vlad/ansible_dev/roles/nginx/files/vlad.conf
+nginx_path_html: /home/vlad/ansible_dev/roles/nginx/files/index.html
+
+

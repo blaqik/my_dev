@@ -1,0 +1,24 @@
+---
+
+- name: install nginx
+  apt:
+          update_cache: true
+          name: nginx
+          state: latest
+
+- name: remove default file
+  file:
+          path: /etc/nginx/sites-enabled/default
+          state: absent
+
+- name: copy project
+  copy:
+          src: /home/vlad/ansible_dev/roles/nginx/files/index.html
+          dest: /var/www/index.html
+
+- name: copy nginx conf
+  copy:
+          src:  /home/vlad/ansible_dev/roles/nginx/files/vlad.conf
+          dest: /etc/nginx/sites-enabled/ansible_site.conf
+  notify: restart nginx
+
